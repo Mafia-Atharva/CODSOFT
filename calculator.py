@@ -10,8 +10,6 @@ def calculate(x,y,op):
             return(f"Result = {x/y}")
         case 5:
             return(f"Result = {x**y}")
-        case 6:
-            return -1
         
 def menu():
     op=int(input("1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Power\n6.Exit\nEnter operation(1/2/3/4/5/6):"))
