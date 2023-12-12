@@ -13,6 +13,8 @@ def calculate(x,y,op):
         
 def menu():
     op=int(input("1.Add\n2.Subtract\n3.Multiply\n4.Divide\n5.Power\n6.Exit\nEnter operation(1/2/3/4/5/6):"))
+    if(op>6 or op < 1):
+        return -1
     if(op==6):
         print("Thank you for using this program!")
         exit(0)
@@ -23,4 +25,8 @@ def menu():
 print("***************Caclulator***************")
 while True:
     result=menu()
-    print(f"----------------\n{result}\n----------------")
+    if(result==-1):
+        print("\nEnter a valid operation!\n")
+        continue
+    else:
+        print(f"----------------\n{result}\n----------------")
