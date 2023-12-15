@@ -41,7 +41,7 @@ class Window(QMainWindow):
         self.SScb.setGeometry(270,210,130,40)
 
         #buttons
-        self.submitbtn= QPushButton("Submit",self)
+        self.submitbtn= QPushButton("Generate",self)
         self.submitbtn.setGeometry(150,270,250,40)
         self.submitbtn.setToolTip("Click to submit")
         self.submitbtn.clicked.connect(self.generate)
@@ -81,7 +81,7 @@ class Window(QMainWindow):
         QMessageBox.information(self, "Password Copied", "Password copied to clipboard.")        
 
 app=QApplication(sys.argv)
-app.setStyleSheet("QLabel{font-size: 18pt;} QLineEdit{border-radius: 10px; border: 1px solid black;}")
+app.setStyleSheet("QLabel{font-size: 18pt;} QLineEdit{border-radius: 10px; border: 1px solid black;} QPushButton{font-size:15pt}")
 window = Window()
 window.show()
 
