@@ -40,11 +40,15 @@ class Window(QMainWindow):
         self.SScb = QCheckBox("Special symbols",self)
         self.SScb.setGeometry(270,210,130,40)
 
-        #submit button
-        submitButton= QPushButton("Submit",self)
-        submitButton.setGeometry(150,270,300,40)
-        submitButton.setToolTip("Click to submit")
-        submitButton.clicked.connect(self.generate)
+        #buttons
+        self.submitbtn= QPushButton("Submit",self)
+        self.submitbtn.setGeometry(150,270,250,40)
+        self.submitbtn.setToolTip("Click to submit")
+        self.submitbtn.clicked.connect(self.generate)
+        self.copybtn = QPushButton("Copy Password",self)
+        self.copybtn.clicked.connect(self.copyPass)
+        self.copybtn.setGeometry(150,410,250,40)
+        self.copybtn.hide()
 
     @pyqtSlot()
     def generate(self):
@@ -68,7 +72,13 @@ class Window(QMainWindow):
 
         self.plabel.setText(f"Password: {password}")
         self.plabel.show()
-        
+        self.copybtn.show()
+
+    @pyqtSlot()
+    def copyPass(self):
+        clipboard=QApplication.clipboard()
+        clipboard.setText(self.plabel.text().split(":")[1].strip())
+        QMessageBox.information(self, "Password Copied", "Password copied to clipboard.")        
 
 app=QApplication(sys.argv)
 app.setStyleSheet("QLabel{font-size: 18pt;} QLineEdit{border-radius: 10px; border: 1px solid black;}")
